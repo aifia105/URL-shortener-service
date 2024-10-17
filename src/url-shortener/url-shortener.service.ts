@@ -19,7 +19,7 @@ export class UrlShortenerService {
         originalUrl,
       });
       if (existingUrl) {
-        return `${process.env.NEXT_PUBLIC_BACKEND_URL}/s/${existingUrl.shortCode}`;
+        return `${process.env.BACKEND_URL}/s/${existingUrl.shortCode}`;
       }
       const shortCode = this.generateShortCode(8);
       const shortUrl = new this.urlShortenerModel({
@@ -27,7 +27,7 @@ export class UrlShortenerService {
         shortCode,
       });
       await shortUrl.save();
-      return `${process.env.NEXT_PUBLIC_BACKEND_URL}/s/${shortCode}`;
+      return `${process.env.BACKEND_URL}/s/${shortCode}`;
     } catch (error) {
       console.error(error);
       throw new Error(`Error creating a shorten url: ${error.message}`);
@@ -37,8 +37,7 @@ export class UrlShortenerService {
   generateShortCode(codeNb: number): string {
     try {
       let code = '';
-      const chars =
-        '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      const chars = process.env.SECRET;
       for (let i = 0; i < codeNb; i++) {
         const random = Math.floor(Math.random() * 62);
         code += chars[random];

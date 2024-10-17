@@ -13,14 +13,14 @@ async function bootstrap() {
   //To access to your files with NestJs you need to define your static assets directory name in the main.ts
 
   // Start the Nest application
-  const PORT = process.env.PORT || 5000;
+  const PORT = process.env.PORT;
 
   await app.listen(PORT);
   console.log(
     '--------------------------------------------------------------------------------------',
   );
   console.log(
-    `Server running on port ${PORT} and you can access the API at http://localhost:${PORT}/api`,
+    `Server running on port ${PORT} and you can access the API at http://localhost:${PORT}`,
   );
   console.log(
     '--------------------------------------------------------------------------------------',
