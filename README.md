@@ -1,6 +1,6 @@
 # URL Shortener Service
 
-A URL-shortening service built with NestJS and TypeScript.
+A URL-shortener service built with NestJS and TypeScript.
 
 ## Description
 
